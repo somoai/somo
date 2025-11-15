@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "students",
     "content",
     "learning_engine",
+    "channels",
 ]
 
 MIDDLEWARE = [

@@ -40,6 +40,11 @@ class Student(models.Model):
         ('en', 'English'),
         ('sw', 'Swahili'),
     ]
+    SUBSCRIPTION_CHOICES = [
+        ('free', 'Free'),
+        ('basic', 'Basic'),
+        ('premium', 'Premium'),
+    ]
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     phone_number = models.CharField(max_length=15, unique=True, db_index=True)
@@ -60,6 +65,12 @@ class Student(models.Model):
         default='sms'
     )
     language = models.CharField(max_length=5, choices=LANGUAGE_CHOICES, default='en')
+    subscription_tier = models.CharField(
+        max_length=20,
+        choices=SUBSCRIPTION_CHOICES,
+        default='free',
+        help_text="Subscription tier for SMS quotas"
+    )
     settings = models.JSONField(
         default=dict,
         blank=True,
