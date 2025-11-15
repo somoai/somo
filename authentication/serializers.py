@@ -239,6 +239,6 @@ class StudentProfileSerializer(serializers.ModelSerializer):
             'preferred_channel',
             'language',
             'is_active',
-            'created_at'
+            'date_joined'
         ]
-        read_only_fields = ['id', 'subscription_tier', 'created_at']
+        read_only_fields = ['id', 'subscription_tier', 'date_joined']
