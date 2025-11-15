@@ -90,6 +90,48 @@ class Student(models.Model):
     def __str__(self):
         return f"{self.name} (Grade {self.grade_level})"
 
+    # Authentication methods for JWT
+    @property
+    def is_authenticated(self):
+        """Always return True for authenticated instances."""
+        return True
+
+    @property
+    def is_anonymous(self):
+        """Always return False for authenticated users."""
+        return False
+
+    def get_username(self):
+        """Return phone number as username."""
+        return self.phone_number
+
+    # Required for Django admin (even though we don't use passwords)
+    @property
+    def is_staff(self):
+        """Designate superusers."""
+        return False
+
+    @property
+    def is_superuser(self):
+        """Designate superusers."""
+        return False
+
+    def has_perm(self, perm, obj=None):
+        """Check if user has specific permission."""
+        return False
+
+    def has_module_perms(self, app_label):
+        """Check if user has permissions to view app."""
+        return False
+
+    # Compatibility with JWT
+    USERNAME_FIELD = 'phone_number'
+    REQUIRED_FIELDS = ['name', 'grade_level']
+
+    # Password field (not used but required by Django auth)
+    password = None
+    last_login = None
+
 
 class Parent(models.Model):
     """Parent/Guardian model"""
