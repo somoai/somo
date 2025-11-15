@@ -22,4 +22,5 @@ urlpatterns = [
     # API Endpoints
     path('api/', include('students.urls')),
     path('api/', include('content.urls')),
+    path('api/', include('learning_engine.urls')),
 ]

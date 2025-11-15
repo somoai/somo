@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     # Local apps
     "students",
     "content",
+    "learning_engine",
 ]
 
 MIDDLEWARE = [
