@@ -208,4 +208,4 @@ Proprietary - SomoAI Education Platform
 
 ## Contact
 
-For questions or support, contact: [your-email@somoai.co.ke]
+For questions or support, contact: [vince@somoai.co.ke]
