@@ -83,18 +83,37 @@ DATABASES = {
     )
 }
 
-# Cache Configuration - Redis
+# Cache Configuration - Redis (with fallback to local memory for development)
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.redis.RedisCache',
         'LOCATION': config('REDIS_URL', default='redis://localhost:6379/0'),
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django.core.cache.backends.redis.RedisClient',
-        },
         'KEY_PREFIX': 'somoai',
         'TIMEOUT': 300,
+        'OPTIONS': {
+            'socket_connect_timeout': 5,
+            'socket_timeout': 5,
+            'retry_on_timeout': True,
+            'max_connections': 50,
+        }
     }
 }
+
+# Fallback to in-memory cache if Redis is not available (development only)
+import socket
+try:
+    socket.create_connection(('localhost', 6379), timeout=1).close()
+except (socket.error, socket.timeout):
+    # Redis not available, use local memory cache for development
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            'LOCATION': 'somoai-dev',
+            'OPTIONS': {
+                'MAX_ENTRIES': 1000
+            }
+        }
+    }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
