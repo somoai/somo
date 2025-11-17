@@ -5,6 +5,7 @@
  * - Home (Dashboard)
  * - Learn (Lessons)
  * - Chat (AI Tutor)
+ * - Voice (Voice Tutor)
  * - Progress (Stats)
  * - Settings (Profile)
  */
@@ -19,6 +20,7 @@ import {Colors, Typography, Spacing} from '@constants/theme';
 import HomeScreen from '../screens/main/HomeScreen';
 import LearnScreen from '../screens/main/LearnScreen';
 import ChatScreen from '../screens/chat/ChatScreen';
+import VoiceChatScreen from '../screens/voice/VoiceChatScreen';
 import ProgressScreen from '../screens/main/ProgressScreen';
 import SettingsScreen from '../screens/main/SettingsScreen';
 
@@ -78,6 +80,16 @@ export default function MainNavigator() {
           tabBarLabel: 'AI Tutor',
           tabBarIcon: ({color, size}) => (
             <Icon name="robot" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Voice"
+        component={VoiceChatScreen}
+        options={{
+          tabBarLabel: 'Voice',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="microphone" size={size} color={color} />
           ),
         }}
       />

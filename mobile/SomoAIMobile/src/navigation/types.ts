@@ -67,6 +67,7 @@ export type MainTabParamList = {
   Home: undefined;
   Learn: undefined;
   Chat: undefined;
+  Voice: undefined;
   Progress: undefined;
   Settings: undefined;
 };
