@@ -2,7 +2,7 @@ from django.utils import timezone
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 
@@ -24,11 +24,11 @@ from .serializers import (
 class SubjectViewSet(viewsets.ReadOnlyModelViewSet):
     """
     ViewSet for viewing subjects.
-    Read-only for students.
+    Public endpoint - no authentication required for viewing subjects.
     """
     queryset = Subject.objects.all()
     serializer_class = SubjectSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]  # Public access for subjects
     filter_backends = [SearchFilter, OrderingFilter]
     search_fields = ['name', 'code']
     ordering_fields = ['name', 'created_at']
