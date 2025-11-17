@@ -18,6 +18,8 @@ export type RootStackParamList = {
   Auth: undefined;
   Onboarding: undefined;
   Main: undefined;
+  PersonaSelector: {subject?: string; concept?: string};
+  VideoChat: {personaId: string; concept?: string};
 };
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =

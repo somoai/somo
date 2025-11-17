@@ -21,6 +21,8 @@ import MainNavigator from './MainNavigator';
 
 // Import screens
 import SplashScreen from '../screens/SplashScreen';
+import PersonaSelectorScreen from '../screens/video/PersonaSelectorScreen';
+import VideoChatScreen from '../screens/video/VideoChatScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -78,13 +80,31 @@ export default function RootNavigator() {
           />
         ) : (
           // Show main app
-          <Stack.Screen
-            name="Main"
-            component={MainNavigator}
-            options={{
-              animationEnabled: true,
-            }}
-          />
+          <>
+            <Stack.Screen
+              name="Main"
+              component={MainNavigator}
+              options={{
+                animationEnabled: true,
+              }}
+            />
+            <Stack.Screen
+              name="PersonaSelector"
+              component={PersonaSelectorScreen}
+              options={{
+                animationEnabled: true,
+                presentation: 'modal',
+              }}
+            />
+            <Stack.Screen
+              name="VideoChat"
+              component={VideoChatScreen}
+              options={{
+                animationEnabled: true,
+                presentation: 'fullScreenModal',
+              }}
+            />
+          </>
         )}
       </Stack.Navigator>
     </NavigationContainer>

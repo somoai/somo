@@ -2,7 +2,13 @@
  * App Configuration Constants
  */
 
-import {API_BASE_URL, API_TIMEOUT, OPENAI_API_KEY, ELEVENLABS_API_KEY} from '@env';
+import {
+  API_BASE_URL,
+  API_TIMEOUT,
+  OPENAI_API_KEY,
+  ELEVENLABS_API_KEY,
+  TAVUS_API_KEY,
+} from '@env';
 
 // API Configuration
 export const API_CONFIG = {
@@ -92,6 +98,18 @@ Always be patient, supportive, and culturally sensitive.`,
   VOICE_TUTOR_COST_PER_MINUTE: 0.05, // USD
   VOICE_TUTOR_FREE_MINUTES_PER_DAY: 5,
   VOICE_TUTOR_PREMIUM_MINUTES_PER_DAY: 60,
+
+  // Tavus Video Tutor Configuration
+  TAVUS_API_KEY: TAVUS_API_KEY || '',
+
+  // Video Tutor Settings
+  VIDEO_TUTOR_MAX_SESSION_DURATION: 30 * 60 * 1000, // 30 minutes
+  VIDEO_TUTOR_AUTO_END_INACTIVITY: 5 * 60 * 1000, // 5 minutes
+  VIDEO_TUTOR_COST_PER_MINUTE: 2.0, // USD (Tavus pricing)
+  VIDEO_TUTOR_PREMIUM_MINUTES_PER_DAY: 60,
+  VIDEO_TUTOR_MIN_TIER: 'premium', // Only premium+ users
+  VIDEO_QUALITY: 'hd', // 'sd' | 'hd'
+  VIDEO_FRAME_RATE: 30,
 };
 
 // Storage Keys
@@ -106,4 +124,6 @@ export const STORAGE_KEYS = {
   CHAT_USAGE: '@somoai/chat_usage',
   VOICE_USAGE: '@somoai/voice_usage',
   VOICE_SESSIONS: '@somoai/voice_sessions',
+  VIDEO_STATE: '@somoai/video_state',
+  VIDEO_SESSIONS: '@somoai/video_sessions',
 };
