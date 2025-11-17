@@ -1,11 +1,8 @@
 /**
  * SomoAI Theme Configuration
  *
- * Material Design theme with Kenyan flag colors
- * - Green: Primary color (from flag)
- * - Red: Accent color (from flag)
- * - Black: Text and borders (from flag)
- * - White: Background
+ * Modern design system with bright, friendly colors
+ * Inspired by leading education apps with Kenyan context
  */
 
 import {MD3LightTheme, configureFonts} from 'react-native-paper';
@@ -13,50 +10,100 @@ import type {MD3Theme} from 'react-native-paper';
 
 // Color Palette
 export const Colors = {
-  // Primary Colors (Kenyan Flag)
-  primary: '#006400', // Dark Green
-  primaryLight: '#228B22', // Forest Green
-  primaryDark: '#004D00',
+  // Primary Colors (Bright Blue - Modern Education Apps)
+  primary: '#0099FF', // Bright Blue
+  primaryLight: '#33AAFF',
+  primaryDark: '#0077CC',
+  primarySubtle: '#E6F5FF', // Very light blue for backgrounds
 
-  // Accent Colors
-  accent: '#DC143C', // Crimson Red
-  accentLight: '#FF6B6B',
-  accentDark: '#B22222',
+  // Secondary Colors
+  secondary: '#FF6B9D', // Pink accent
+  secondaryLight: '#FFB3C6',
+  secondaryDark: '#CC5680',
 
   // Neutral Colors
   black: '#000000',
   white: '#FFFFFF',
-  background: '#F5F5F5',
+  background: '#FFFFFF', // Pure white for clean look
+  backgroundSecondary: '#F8F9FA', // Off-white
+  backgroundGradient: {
+    start: '#FFFFFF',
+    end: '#F0F7FF', // Subtle blue tint
+  },
   surface: '#FFFFFF',
 
   // Text Colors
-  text: '#212121',
-  textSecondary: '#757575',
-  textDisabled: '#BDBDBD',
+  text: '#1A1D29', // Dark navy for headings
+  textSecondary: '#6B7280', // Gray for descriptions
+  textTertiary: '#9CA3AF', // Light gray for hints
+  textInverse: '#FFFFFF',
+  textDisabled: '#D1D5DB',
 
   // Status Colors
-  success: '#4CAF50',
-  warning: '#FF9800',
-  error: '#F44336',
-  info: '#2196F3',
+  success: '#10B981', // Modern green
+  warning: '#F59E0B', // Warm orange
+  error: '#EF4444', // Modern red
+  info: '#0099FF', // Same as primary
 
   // Mastery Level Colors
-  mastered: '#4CAF50', // Green (80-100%)
-  proficient: '#8BC34A', // Light Green (70-79%)
-  developing: '#FFC107', // Amber (60-69%)
-  beginner: '#FF9800', // Orange (0-59%)
+  mastered: '#10B981', // Green (80-100%)
+  proficient: '#10B981', // Green (70-79%)
+  developing: '#F59E0B', // Orange (60-69%)
+  beginner: '#EF4444', // Red (0-59%)
 
   // UI Elements
-  border: '#E0E0E0',
-  divider: '#EEEEEE',
-  overlay: 'rgba(0, 0, 0, 0.5)',
+  border: '#E5E7EB', // Light gray border
+  borderFocus: '#0099FF', // Blue border when focused
+  divider: '#F3F4F6',
+  overlay: 'rgba(0, 0, 0, 0.4)',
+  shadow: 'rgba(0, 0, 0, 0.08)',
 
-  // Gradients
-  gradientStart: '#006400',
-  gradientEnd: '#228B22',
+  // Kenya Colors (subtle accents)
+  kenya: {
+    green: '#006400',
+    red: '#DC143C',
+    black: '#000000',
+  },
 };
 
-// Font Configuration
+// Typography
+export const Typography = {
+  // Font Families (System fonts for now, can be customized later)
+  fonts: {
+    heading: 'System', // Bold, for titles
+    body: 'System', // Regular, for body text
+    button: 'System', // Medium, for buttons
+    mono: 'Menlo', // Monospace, for codes
+  },
+
+  // Font Sizes
+  sizes: {
+    xs: 12,
+    sm: 14,
+    base: 16,
+    lg: 18,
+    xl: 24, // Onboarding titles
+    xxl: 32, // Hero titles
+    xxxl: 40, // Large display
+  },
+
+  // Font Weights
+  weights: {
+    regular: '400' as const,
+    medium: '500' as const,
+    semibold: '600' as const,
+    bold: '700' as const,
+  },
+
+  // Line Heights
+  lineHeights: {
+    tight: 1.2,
+    normal: 1.5,
+    relaxed: 1.75,
+  },
+};
+
+// Font Configuration for Material Design
 const fontConfig = {
   displayLarge: {
     fontFamily: 'System',
@@ -208,21 +255,64 @@ export const theme: MD3Theme = {
 
 // Spacing
 export const Spacing = {
+  xxs: 2,
   xs: 4,
   sm: 8,
-  md: 16,
+  md: 12,
+  base: 16,
   lg: 24,
   xl: 32,
   xxl: 48,
+  xxxl: 64,
 };
 
 // Border Radius
 export const BorderRadius = {
-  sm: 4,
-  md: 8,
-  lg: 12,
-  xl: 16,
+  none: 0,
+  xs: 4,
+  sm: 8,
+  md: 12,
+  lg: 16,
+  xl: 20,
+  xxl: 24,
   round: 999,
+};
+
+// Component Sizes
+export const ComponentSizes = {
+  button: {
+    small: 40,
+    medium: 48,
+    large: 56,
+  },
+  input: {
+    small: 40,
+    medium: 48,
+    large: 56,
+  },
+  avatar: {
+    xs: 24,
+    sm: 32,
+    md: 48,
+    lg: 64,
+    xl: 96,
+  },
+};
+
+// Animation Durations (milliseconds)
+export const AnimationDuration = {
+  fast: 150,
+  normal: 250,
+  slow: 400,
+};
+
+// Animation Easings
+export const AnimationEasing = {
+  linear: 'linear',
+  easeIn: 'ease-in',
+  easeOut: 'ease-out',
+  easeInOut: 'ease-in-out',
+  spring: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
 };
 
 // Shadows
