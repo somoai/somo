@@ -25,6 +25,7 @@ export const Colors = {
   black: '#000000',
   white: '#FFFFFF',
   background: '#FFFFFF', // Pure white for clean look
+  backgroundPrimary: '#FFFFFF', // Alias for consistency
   backgroundSecondary: '#F8F9FA', // Off-white
   backgroundGradient: {
     start: '#FFFFFF',
@@ -34,6 +35,7 @@ export const Colors = {
 
   // Text Colors
   text: '#1A1D29', // Dark navy for headings
+  textPrimary: '#1A1D29', // Alias for consistency
   textSecondary: '#6B7280', // Gray for descriptions
   textTertiary: '#9CA3AF', // Light gray for hints
   textInverse: '#FFFFFF',
