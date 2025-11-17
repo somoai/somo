@@ -2,7 +2,7 @@
  * App Configuration Constants
  */
 
-import {API_BASE_URL, API_TIMEOUT} from '@env';
+import {API_BASE_URL, API_TIMEOUT, OPENAI_API_KEY} from '@env';
 
 // API Configuration
 export const API_CONFIG = {
@@ -49,6 +49,41 @@ export const OFFLINE_CONFIG = {
   CACHE_DURATION: 24 * 60 * 60 * 1000, // 24 hours
 };
 
+// AI Tutoring Configuration
+export const AI_CONFIG = {
+  // OpenAI API Configuration
+  OPENAI_API_KEY: OPENAI_API_KEY || '',
+  OPENAI_MODEL: 'gpt-4o-mini', // Cost-effective model for tutoring
+  OPENAI_MAX_TOKENS: 1000,
+  OPENAI_TEMPERATURE: 0.7,
+
+  // Cost Tracking (in USD)
+  COST_PER_1K_INPUT_TOKENS: 0.00015, // GPT-4o-mini
+  COST_PER_1K_OUTPUT_TOKENS: 0.0006,  // GPT-4o-mini
+
+  // Usage Limits by Tier
+  FREE_TIER_MESSAGES_PER_DAY: 10,
+  PREMIUM_TIER_MESSAGES_PER_DAY: 100,
+
+  // Conversation Settings
+  MAX_CONVERSATION_HISTORY: 20, // Last N messages to send for context
+  MAX_IMAGE_SIZE_MB: 5,
+  SUPPORTED_IMAGE_TYPES: ['image/jpeg', 'image/png', 'image/jpg'],
+
+  // System Prompt
+  SYSTEM_PROMPT: `You are a friendly and patient AI tutor for Kenyan primary school students (Grades 1-8). Your role is to:
+- Help students understand Math, English, Science, and Kiswahili concepts
+- Break down complex topics into simple, age-appropriate explanations
+- Use examples relevant to Kenyan culture and daily life
+- Encourage critical thinking with guided questions
+- Provide step-by-step solutions for homework problems
+- Be encouraging and positive, celebrating student progress
+- Use simple language appropriate for the student's grade level
+- When helping with homework, guide students to the answer rather than giving it directly
+
+Always be patient, supportive, and culturally sensitive.`,
+};
+
 // Storage Keys
 export const STORAGE_KEYS = {
   AUTH_TOKENS: '@somoai/auth_tokens',
@@ -57,4 +92,6 @@ export const STORAGE_KEYS = {
   CACHED_LESSONS: '@somoai/cached_lessons',
   CACHED_PROGRESS: '@somoai/cached_progress',
   APP_SETTINGS: '@somoai/app_settings',
+  CHAT_CONVERSATIONS: '@somoai/chat_conversations',
+  CHAT_USAGE: '@somoai/chat_usage',
 };

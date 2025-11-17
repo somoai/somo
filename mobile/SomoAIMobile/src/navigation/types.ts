@@ -66,6 +66,7 @@ export type OnboardingStackScreenProps<
 export type MainTabParamList = {
   Home: undefined;
   Learn: undefined;
+  Chat: undefined;
   Progress: undefined;
   Settings: undefined;
 };

@@ -4,6 +4,7 @@
  * Bottom tab navigator for main app:
  * - Home (Dashboard)
  * - Learn (Lessons)
+ * - Chat (AI Tutor)
  * - Progress (Stats)
  * - Settings (Profile)
  */
@@ -17,6 +18,7 @@ import {Colors, Typography, Spacing} from '@constants/theme';
 // Import screens
 import HomeScreen from '../screens/main/HomeScreen';
 import LearnScreen from '../screens/main/LearnScreen';
+import ChatScreen from '../screens/chat/ChatScreen';
 import ProgressScreen from '../screens/main/ProgressScreen';
 import SettingsScreen from '../screens/main/SettingsScreen';
 
@@ -66,6 +68,16 @@ export default function MainNavigator() {
           tabBarLabel: 'Learn',
           tabBarIcon: ({color, size}) => (
             <Icon name="book-open-variant" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Chat"
+        component={ChatScreen}
+        options={{
+          tabBarLabel: 'AI Tutor',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="robot" size={size} color={color} />
           ),
         }}
       />
