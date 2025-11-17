@@ -1,4 +1,4 @@
-# SomoAI Backend
+# SomoAI
 
 SomoAI is an AI-powered education platform designed for Kenyan students, delivering personalized learning experiences through SMS, USSD, and mobile apps.
 
