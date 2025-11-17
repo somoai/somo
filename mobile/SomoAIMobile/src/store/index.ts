@@ -26,6 +26,7 @@ import studentReducer from './slices/studentSlice';
 import learningReducer from './slices/learningSlice';
 import onboardingReducer from './slices/onboardingSlice';
 import chatReducer from './slices/chatSlice';
+import voiceReducer from './slices/voiceSlice';
 
 // ============================================================================
 // Redux Persist Configuration
@@ -35,7 +36,7 @@ const persistConfig = {
   key: 'root',
   version: 1,
   storage: AsyncStorage,
-  whitelist: ['auth', 'student', 'onboarding', 'chat'], // Only persist these
+  whitelist: ['auth', 'student', 'onboarding', 'chat', 'voice'], // Only persist these
   blacklist: ['learning'], // Don't persist (fetched on demand)
 };
 
@@ -49,6 +50,7 @@ const rootReducer = combineReducers({
   learning: learningReducer,
   onboarding: onboardingReducer,
   chat: chatReducer,
+  voice: voiceReducer,
 });
 
 // Persisted reducer

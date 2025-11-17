@@ -2,7 +2,7 @@
  * App Configuration Constants
  */
 
-import {API_BASE_URL, API_TIMEOUT, OPENAI_API_KEY} from '@env';
+import {API_BASE_URL, API_TIMEOUT, OPENAI_API_KEY, ELEVENLABS_API_KEY} from '@env';
 
 // API Configuration
 export const API_CONFIG = {
@@ -82,6 +82,16 @@ export const AI_CONFIG = {
 - When helping with homework, guide students to the answer rather than giving it directly
 
 Always be patient, supportive, and culturally sensitive.`,
+
+  // ElevenLabs Voice Tutor Configuration
+  ELEVENLABS_API_KEY: ELEVENLABS_API_KEY || '',
+
+  // Voice Tutor Settings
+  VOICE_TUTOR_MAX_SESSION_DURATION: 30 * 60 * 1000, // 30 minutes
+  VOICE_TUTOR_AUTO_END_INACTIVITY: 5 * 60 * 1000, // 5 minutes
+  VOICE_TUTOR_COST_PER_MINUTE: 0.05, // USD
+  VOICE_TUTOR_FREE_MINUTES_PER_DAY: 5,
+  VOICE_TUTOR_PREMIUM_MINUTES_PER_DAY: 60,
 };
 
 // Storage Keys
@@ -94,4 +104,6 @@ export const STORAGE_KEYS = {
   APP_SETTINGS: '@somoai/app_settings',
   CHAT_CONVERSATIONS: '@somoai/chat_conversations',
   CHAT_USAGE: '@somoai/chat_usage',
+  VOICE_USAGE: '@somoai/voice_usage',
+  VOICE_SESSIONS: '@somoai/voice_sessions',
 };
